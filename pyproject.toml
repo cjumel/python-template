@@ -26,11 +26,7 @@ force-exclude = '''
 '''
 include = '\.pyi?$'
 line-length = 100
-target-version = [
-  'py310',
-  'py311',
-  'py39'
-]
+target-version = ['py310', 'py311', 'py39']
 
 [tool.coverage.report]
 exclude_lines = [
@@ -39,7 +35,7 @@ exclude_lines = [
   "pragma: no cover",
   "raise NotImplementedError",
   "raise TypeError",
-  "raise ValueError"
+  "raise ValueError",
 ]
 
 [tool.poetry]
@@ -64,23 +60,20 @@ pytest-cov = "^3.0.0"
 
 [tool.pytest.ini_options]
 addopts = "--import-mode=importlib --cov-report term-missing:skip-covered"
-markers = [
-  "serial",
-  "slow: marks tests as slow (deselect with '-m \"not slow\"')"
-]
+markers = ["serial", "slow: marks tests as slow (deselect with '-m \"not slow\"')"]
 
 [tool.ruff]
 extend-ignore = [
-  "S311" # Standard pseudo-random generators are not suitable for cryptographic purposes
+  "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
 ]
 extend-select = [
   "I", # isort
-  "S" # flake8-bandit
+  "S", # flake8-bandit
 ]
 line-length = 100
 target-version = "py311"
 
 [tool.ruff.extend-per-file-ignores]
 "__init__.py" = [
-  "F401" # {name} imported but unused
+  "F401", # {name} imported but unused
 ]
