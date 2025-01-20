@@ -1,32 +1,17 @@
+[project]
+authors = [{ name = "Clément Jumel", email = "clement.jumel@gmail.com" }]
+dependencies = ["python-dotenv (>=1.0.1,<2.0.0)"]
+description = "A Generic Template for Python Packages"
+name = "python-template"
+readme = "README.md"
+requires-python = ">=3.13"
+version = "0.1.0"
+
 [build-system]
 build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 
 [tool]
-
-[tool.black]
-exclude = '''
-/(
-    \.eggs
-  | \.git
-  | \.hg
-  | \.mypy_cache
-  | \.tox
-  | \.venv
-  | _build
-  | buck-out
-  | build
-  | dist
-)/
-'''
-force-exclude = '''
-/(
-    notebooks
-)/
-'''
-include = '\.pyi?$'
-line-length = 100
-target-version = ['py310', 'py311', 'py39']
 
 [tool.coverage.report]
 exclude_lines = [
@@ -38,42 +23,27 @@ exclude_lines = [
   "raise ValueError",
 ]
 
-[tool.poetry]
-authors = ["Clément Jumel <clement.jumel@gmail.com>"]
-description = "A Generic Template for Python Packages"
-license = "Apache-2.0"
-name = "python-template"
-readme = "README.md"
-repository = "https://github.com/clementjumel/python-template"
-version = "0.1.0"
-
-[tool.poetry.dependencies]
-python = "^3.9"
-
-[tool.poetry.group.notebooks.dependencies]
-jupytext = "^1.13.5" # Version control for Jupyter notebooks
-notebook = "^6.4.3" # Jupyter notebooks
-
 [tool.poetry.group.test.dependencies]
-pytest = "^7.1.2"
-pytest-cov = "^3.0.0"
+mypy = "^1.14.1"
+pre-commit = "^4.0.1"
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
 
 [tool.pytest.ini_options]
 addopts = "--import-mode=importlib --cov-report term-missing:skip-covered"
 markers = ["serial", "slow: marks tests as slow (deselect with '-m \"not slow\"')"]
 
 [tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
 extend-ignore = [
   "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
 ]
-extend-select = [
+select = [
+  "E", # pycodestyle
+  "F", # pyflakes
   "I", # isort
   "S", # flake8-bandit
-]
-line-length = 100
-target-version = "py311"
-
-[tool.ruff.extend-per-file-ignores]
-"__init__.py" = [
-  "F401", # {name} imported but unused
 ]
