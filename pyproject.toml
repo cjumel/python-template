@@ -43,12 +43,12 @@ exclude_lines = [
 ]
 
 [tool.poetry]
-authors = ["clementjumel <clement.jumel@gmail.com>"]
-description = "Generic Template for Python Packages"
+authors = ["Clément Jumel <clement.jumel@gmail.com>"]
+description = "A Generic Template for Python Packages"
 license = "Apache-2.0"
-name = "plathon"
+name = "python-template"
 readme = "README.md"
-repository = "https://github.com/clementjumel/plathon"
+repository = "https://github.com/clementjumel/python-template"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
