@@ -1,11 +1,14 @@
 ### Custom .gitignore ###
+
 # Data stuff
-data/
+data/*
+!data/.gitkeep
 
 # Pycharm stuff
 .idea/
 
 ### GitHub's .gitignore Python template ###
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
