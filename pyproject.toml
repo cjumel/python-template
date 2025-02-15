@@ -23,6 +23,9 @@ exclude_lines = [
   "raise ValueError",
 ]
 
+[tool.mypy]
+strict = true
+
 [tool.poetry.group.test.dependencies]
 mypy = "^1.14.1"
 pre-commit = "^4.0.1"
